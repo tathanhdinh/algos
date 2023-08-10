@@ -4,7 +4,7 @@
 >
 > Given four integers n, a, b, and c, return the nth ugly number.
 
-#### Idea
+#### Solution
 Using formula for the priciple of inclusion-exclusion, for any $m \in \mathbb{N}^{*}$, the number of multipliers which are less than or equal $m$ of either $a$, $b$ or $c$ is:
 
 $$
