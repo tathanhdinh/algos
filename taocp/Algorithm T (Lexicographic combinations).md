@@ -12,11 +12,18 @@ The algorithm T is presented in the section 7.2.1.3 (volume 4A), it generates al
 >
 > T5. [Done?] Terminate the alogrithm if $j \geq t$.
 >
-> T6. [Increase $c_j$.] Set $c_j \leftarrow x, j \leftarrow {j-1}$, and return to T2.$\quad \blacksquare$
+> T6. [Increase $c_j$.] Set $c_j \leftarrow x, j \leftarrow {j-1}$, and return to T2. $\quad \blacksquare$
 
 #### Explanation
 
-Consider an example where $n=6$ and $t=3$, then $\binom{6}{3} = 20$ combinations generated in order are: $$\begin{align*}210,310,320,321, 410, 420, 421, 430, 431, 432,\\ 510,520,521,530,531,532,540,541,542,543\end{align*}$$
+Consider an example where $n=6$ and $t=3$, then $\binom{6}{3} = 20$ combinations generated in order are:
+
+$$
+\begin{align*}
+210,310,320,321, 410, 420, 421, 430, 431, 432,\\
+510,520,521,530,531,532,540,541,542,543
+\end{align*}
+$$
 
 Concretely:
 - initialize $c_2 c_1 c_0 = 210$ (T1), note that $c_3= 6, c_4 = 0$
@@ -31,11 +38,16 @@ Concretely:
 - if the smallest index is $3$ (T5) then stop.
 
 The main idea of this algorithm is to compute the next number: when $c_j$ is increased, then $c_{j-1}, c_{j-2}, \dots c_0$ are reset to $j-1, j-2, \dots 0$, we receive the combination $$c_j(j-1)(j-2) \dots 10$$
-The next numbers are
+The next numbers are:
+
 $$
-\begin{align}
-c_jj(j-2) \dots 10, \\ c_jj(j-1)\dots 10, \\ \dots \dots \\ c_jj(j-1) \dots 20 \\ c_jj(j-1) \dots 21
-\end{align}
+\begin{align*}
+&c_jj(j-2) \dots 10, \\
+&c_jj(j-1)\dots 10, \\
+&\dots \quad \dots \quad \dots \\
+&c_jj(j-1) \dots 20\\
+&c_jj(j-1) \dots 21
+\end{align*}
 $$
 
 #### Implementation
